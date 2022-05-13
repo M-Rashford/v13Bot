@@ -1,13 +1,14 @@
+const { SlashCommandSubcommandGroupBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const fs = require('node:fs');
 
 const clientId = '969465395243286599';
-const guildId = '933688561599918080';
+const guildId = null;
 
 module.exports = (client) => {
-    client.handleCommands = async (commandFolders, path) => {
-        client.commandArray = [];
+    client.commandArray = [];
+        client.handleCommands = async (commandFolders, path) => {
         for (folder of commandFolders) {
             const commandFiles = fs.readdirSync(`${path}/${folder}`).filter(file => file.endsWith('.js'));
             for (const file of commandFiles) {
@@ -25,7 +26,7 @@ module.exports = (client) => {
                 console.log('Started refreshing application (/) commands.');
 
                 await rest.put(
-                    Routes.applicationGuildCommands(clientId, guildId),
+                    Routes.applicationCommands(clientId),
                     { body: client.commandArray },
                 );
 
