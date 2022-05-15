@@ -9,6 +9,9 @@ require('dotenv').config();
 const functions = fs.readdirSync("./src/functions").filter(file => file.endsWith(".js"));
 const eventFiles = fs.readdirSync("./src/events").filter(file => file.endsWith(".js"));
 const commandFolders = fs.readdirSync("./src/commands");
+const LinkCache = {
+    "Seattle": ["us", "link1", "link2", "link3"]
+};
 
 (async () => {
     for (file of functions) {
