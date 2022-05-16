@@ -2,7 +2,6 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const  LinkCache = require("../../../cachefolder/linkcache");
 
 module.exports = {
-    allowedChannels: ["933693278379978762"],
     data: new SlashCommandBuilder()
         .setName("edit")
         .setDescription("Input the links you want to add to that location:")
@@ -13,6 +12,16 @@ module.exports = {
             option.setName("link").setDescription("Input Link Here:").setRequired(true)
         ),
     async execute(interaction){
+
+        const allowedChannelIds = ["975798151267110914"]
+
+        const isInAllowedInChannel = allowedChannelIds.includes(interaction.channelId)
+
+        if (isInAllowedInChannel === false) 
+        return interaction.reply("You cannot use that command in this channel")
+
+// Put the rest of the command code here
+
         const roomRegion= interaction.options.getString("region");
         const roomURL = interaction.options.getString("link");
 
