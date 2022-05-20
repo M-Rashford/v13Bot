@@ -10,6 +10,9 @@ module.exports = {
         )
         .addStringOption((option) => 
             option.setName("link").setDescription("Input Link Here:").setRequired(true)
+        )
+        .addStringOption((option) => 
+            option.setName("roomid").setDescription("Input Room # Here:").setRequired(true)
         ),
     async execute(interaction){
 
@@ -24,11 +27,13 @@ module.exports = {
 
         const roomRegion= interaction.options.getString("region");
         const roomURL = interaction.options.getString("link");
+        const roomNumber = interaction.options.getString("roomid");
 
 
         const roomObject = {
             region: roomRegion,
-            link: roomURL
+            link: roomURL,
+            roomid: roomNumber
 
         }
         LinkCache.push(roomObject);
