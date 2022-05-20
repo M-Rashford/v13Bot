@@ -18,6 +18,9 @@ module.exports = {
         )
         .addStringOption((option) => 
             option.setName("linking").setDescription("Input Room Link Here:").setRequired(true)
+        )
+        .addStringOption((option) => 
+            option.setName("time").setDescription("Input Time Frame Here:").setRequired(true)
         ),
     async execute(interaction){
 
@@ -34,12 +37,14 @@ module.exports = {
         const Locations = interaction.options.getString("locations");
         const RoomNum = interaction.options.getString("roomnum");
         const Linking = interaction.options.getString("linking");
+        const Time = interaction.options.getString("time");
       
         const roomObject = {
             leaguename: LeagueName,
             locations: Locations,
             roomnum: RoomNum,
-            linking: Linking
+            linking: Linking,
+            time: Time
 
         }
             const bookEmbed = new Discord.MessageEmbed()
@@ -51,7 +56,8 @@ module.exports = {
                     { name: "League or Tournament Name", value: `${LeagueName}`  },
                     { name: "Location", value: `${Locations}`  },
                     { name: "Room Number", value: `${RoomNum}`  },
-                    { name: "Room Link", value: `${Linking}`  }
+                    { name: "Room Link", value: `${Linking}`  },
+                    { name: "Time Frame", value: `${Time}`  }
                   )
                 .setThumbnail("https://cdn.discordapp.com/attachments/933693278379978762/974417085226700850/IMG_6160.PNG")
                 .setFooter({text : "Bot created by rashy"})
