@@ -13,10 +13,12 @@ module.exports = {
         const miamiRooms = LinkCache.filter((room) => room.region === "Miami");
         const newyorkRooms = LinkCache.filter((room) => room.region === "New York");
         const seattleRooms = LinkCache.filter((room) => room.region === "Seattle");
+        const losangelesRooms = LinkCache.filter((room) => room.region === "Los Angeles");
         const saopauloRooms = LinkCache.filter((room) => room.region === "Sao Paulo");
         const germanyRooms = LinkCache.filter((room) => room.region === "Germany");
         const londonRooms = LinkCache.filter((room) => room.region === "London");
         const mumbaiRooms = LinkCache.filter((room) => room.region === "Mumbai");
+  
         
 
 
@@ -32,6 +34,9 @@ module.exports = {
         const seattleRoomLinks = seattleRooms.map(
             (room, roomNumber) => `🇺🇸 ${room.roomid}. ${room.link}`
         )
+        const losangelesRoomLinks = losangelesRooms.map(
+            (room, roomNumber) => `🇺🇸 ${room.roomid}. ${room.link}`
+        )
         const saopauloRoomLinks = saopauloRooms.map(
             (room, roomNumber) => `🇧🇷 ${room.roomid}. ${room.link}`
         );
@@ -44,23 +49,26 @@ module.exports = {
         const mumbaiRoomLinks = mumbaiRooms.map(
             (room, roomNumber) => `🇮🇳 ${room.roomid}. ${room.link}`
         );
-      
+
 
         const chicagoRoomString = chicagoRoomLinks.join("\n");
         const miamiRoomString = miamiRoomLinks.join("\n");
         const newyorkRoomString = newyorkRoomLinks.join("\n");
         const seattleRoomString = seattleRoomLinks.join("\n");
+        const losangelesRoomString = losangelesRoomLinks.join("\n");
         const saopauloRoomString = saopauloRoomLinks.join("\n");
         const germanyRoomString = germanyRoomLinks.join("\n");
         const londonRoomString = londonRoomLinks.join("\n");
         const mumbaiRoomString = mumbaiRoomLinks.join("\n");
 
 
+
+
         const newEmbed = new Discord.MessageEmbed()
             .setColor('049074')
             .setTitle('Global Hosting Services')
             .setURL('https://discord.gg/ksZY2E6Wpz')
-            .setDescription(`\n\nRashy and Anon are Proud Founders of Global Hosting Services. Our services supply every Haxball participant a room to play in, from scrimmages and pubs to official competitions. Our objective is to help leagues and international tournaments find hosts to play their official matches. We are here to help you.\n\nTo find out more information on our services, a discord link to our official discord server is above this message. Click on the "Global Hosting Services" title, and you will be directed to an invite link.  \n\n🇺🇸 **__Chicago Rooms__** 🇺🇸\n\n${chicagoRoomString}\n\n🇺🇸 **__Miami Rooms__** 🇺🇸\n\n${miamiRoomString}\n\n🇺🇸 **__New York Rooms__**🇺🇸 \n\n${newyorkRoomString}\n\n🇺🇸 **__Seattle Rooms__** 🇺🇸\n\n${seattleRoomString}\n\n🇧🇷 **__Sao Paulo Rooms__** 🇧🇷\n\n${saopauloRoomString}\n\n🇩🇪 **__Germany Rooms__** 🇩🇪\n\n${germanyRoomString}\n\n🇬🇧 **__London Rooms__** 🇬🇧\n\n${londonRoomString}\n\n🇮🇳 **__Mumbai Rooms__** 🇮🇳\n\n${mumbaiRoomString}`)
+            .setDescription(`\n\nRashy and Anon are Proud Founders of Global Hosting Services. Our services supply every Haxball participant a room to play in, from scrimmages and pubs to official competitions. Our objective is to help leagues and international tournaments find hosts to play their official matches. We are here to help you.\n\nTo find out more information on our services, a discord link to our official discord server is above this message. Click on the "Global Hosting Services" title, and you will be directed to an invite link.  \n\n🇺🇸 **__Chicago Rooms__** 🇺🇸\n\n${chicagoRoomString}\n\n🇺🇸 **__Miami Rooms__** 🇺🇸\n\n${miamiRoomString}\n\n🇺🇸 **__New York Rooms__** 🇺🇸 \n\n${newyorkRoomString}\n\n🇺🇸 **__Seattle Rooms__** 🇺🇸\n\n${seattleRoomString}\n\n🇺🇸 **__Los Angeles Rooms__** 🇺🇸\n\n${losangelesRoomString}\n\n🇧🇷 **__Sao Paulo Rooms__** 🇧🇷\n\n${saopauloRoomString}\n\n🇩🇪 **__Germany Rooms__** 🇩🇪\n\n${germanyRoomString}\n\n🇬🇧 **__London Rooms__** 🇬🇧\n\n${londonRoomString}\n\n🇮🇳 **__Mumbai Rooms__** 🇮🇳\n\n${mumbaiRoomString}`)
             .setThumbnail("https://cdn.discordapp.com/attachments/933693278379978762/974417085226700850/IMG_6160.PNG")
             .setFooter('Bot created by rashy')
         interaction.reply({ embeds: [newEmbed] });
